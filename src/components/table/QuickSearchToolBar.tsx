@@ -39,12 +39,12 @@ const QuickSearchToolbar = (props: Props) => {
         InputProps={{
           startAdornment: (
             <Box sx={{ mr: 2, display: 'flex' }}>
-              pesquisar
+              
             </Box>
           ),
           endAdornment: (
             <IconButton size='small' title='Clear' aria-label='Clear' onClick={props.clearSearch}>
-              Clear
+              Limpar
             </IconButton>
           )
         }}

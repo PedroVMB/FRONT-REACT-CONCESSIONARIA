@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography';
 import QuickSearchToolbar from "../../components/table/QuickSearchToolBar";
 import CardHeader from '@mui/material/CardHeader';
 import Card from '@mui/material/Card';
+import { TableCell, Button } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+
 
 export const Principal = () => {
   const [searchText, setSearchText] = useState<string>("");
@@ -18,9 +21,20 @@ export const Principal = () => {
 
   useEffect(() => {
     http
-      .get<IVeiculo[]>("restaurantes/")
-      .then((response) => setVeiculos(response.data));
+      .get<IVeiculo[]>("veiculos")
+      .then((response) => setVeiculos(response.data))
+      .catch((error) => {
+        console.error("Error fetching veiculos:", error);
+      });
   }, []);
+
+  const excluir = (veiculoAhSerExcluido: IVeiculo) => {
+    http.delete(`veiculos/${veiculoAhSerExcluido.id}/`)
+        .then(() => {
+            const listaVeiculos = veiculos.filter(restaurante => restaurante.id !== veiculoAhSerExcluido.id)
+            setVeiculos([...listaVeiculos])
+        })
+}
 
   const handleSearch = (searchValue: string) => {
     setSearchText(searchValue);
@@ -143,6 +157,30 @@ export const Principal = () => {
         <Typography variant="body2" sx={{ color: "text.primary" }}>
           {row.formas_de_pagamento}
         </Typography>
+      ),
+    },
+    {
+      flex: 0.2,
+      minWidth: 110,
+      field: "action",
+      headerName: "Excluir",
+      renderCell: ({ row }) => (
+        <TableCell>
+          <Button variant="outlined" color="error" onClick={() => excluir(row)}>
+            Excluir
+          </Button>
+        </TableCell>
+      ),
+    },
+    {
+      flex: 0.2,
+      minWidth: 110,
+      field: "editar",
+      headerName: "Editar",
+      renderCell: ({ row }) => (
+        <TableCell>
+          <RouterLink to={`/admin/veiculos/${row.id}`}>Editar</RouterLink>
+        </TableCell>
       ),
     },
   ];
