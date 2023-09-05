@@ -43,7 +43,7 @@ export const FormRegisterVehicle = () => {
         alert("Veiculo atualizado com sucesso!");
       });
     } else {
-      http.post("veiculos/", veiculo).then(() => {
+      http.post("veiculos", veiculo).then(() => {
         alert("Novo veiculo cadastrado com sucesso!");
       });
     }
