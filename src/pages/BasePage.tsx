@@ -12,12 +12,12 @@
                                 Administração
                             </Typography>
                             <Box sx={{ display: 'flex', flexGrow: 1, flexDirection: 'row', justifyContent: 'end' }}>
-                                <Link component={RouterLink} to="/admin/veiculos">
+                                <Link component={RouterLink} to="/veiculos">
                                     <Button sx={{ my: 2, color: 'white' }}>
                                         Listar Veiculos
                                     </Button>
                                 </Link>
-                                <Link component={RouterLink} to="/admin/veiculos/novo">
+                                <Link component={RouterLink} to="/veiculos/novo">
                                     <Button sx={{ my: 2, color: 'white' }}>
                                         Adicionar
                                     </Button>

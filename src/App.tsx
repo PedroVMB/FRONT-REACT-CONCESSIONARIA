@@ -6,7 +6,7 @@ import { Principal } from "./pages/principal/Principal";
 function App() {
   return (
     <Routes>
-      <Route path="/admin" element={<BasePage />}>
+      <Route path="/" element={<BasePage />}>
         <Route path="veiculos" element={<Principal />} />
         <Route path="veiculos/novo" element={<FormRegisterVehicle />} />
       </Route>
