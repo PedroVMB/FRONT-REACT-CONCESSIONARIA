@@ -15,6 +15,14 @@ import { http } from "../../http";
 export const FormRegisterVehicle = () => {
   const parametros = useParams();
 
+  useEffect(() => {
+    if (parametros.id) {
+      http.get<IVeiculo>(`veiculos/${parametros.id}`).then((resposta) => {
+        setVeiculo(resposta.data);
+      });
+    }
+  }, [parametros]);
+
   const [veiculo, setVeiculo] = useState<IVeiculo>({
     tipo: "",
     cor: "",
@@ -26,14 +34,6 @@ export const FormRegisterVehicle = () => {
     passagem_por_leilao: "",
     formas_de_pagamento: "",
   });
-
-  useEffect(() => {
-    if (parametros.id) {
-      http.get<IVeiculo>(`veiculos/${parametros.id}`).then((resposta) => {
-        setVeiculo(resposta.data);
-      });
-    }
-  }, [parametros]);
 
   const aoSubmeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
