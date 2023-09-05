@@ -179,7 +179,7 @@ export const Principal = () => {
       headerName: "Editar",
       renderCell: ({ row }) => (
         <TableCell>
-          <RouterLink to={`/admin/veiculos/${row.id}`}>Editar</RouterLink>
+          <RouterLink to={`veiculos/${row.id}`}>Editar</RouterLink>
         </TableCell>
       ),
     },
