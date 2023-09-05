@@ -29,7 +29,7 @@ export const FormRegisterVehicle = () => {
 
   useEffect(() => {
     if (parametros.id) {
-      http.get<IVeiculo>(`veiculos/${parametros.id}/`).then((resposta) => {
+      http.get<IVeiculo>(`veiculos/${parametros.id}`).then((resposta) => {
         setVeiculo(resposta.data);
       });
     }
@@ -39,7 +39,7 @@ export const FormRegisterVehicle = () => {
     evento.preventDefault();
 
     if (parametros.id) {
-      http.put(`veiculos/${parametros.id}/`, veiculo).then(() => {
+      http.put(`veiculos/${parametros.id}`, veiculo).then(() => {
         alert("Veiculo atualizado com sucesso!");
       });
     } else {

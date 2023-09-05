@@ -29,7 +29,7 @@ export const Principal = () => {
   }, []);
 
   const excluir = (veiculoAhSerExcluido: IVeiculo) => {
-    http.delete(`veiculos/${veiculoAhSerExcluido.id}/`)
+    http.delete(`veiculos/${veiculoAhSerExcluido.id}`)
         .then(() => {
             const listaVeiculos = veiculos.filter(restaurante => restaurante.id !== veiculoAhSerExcluido.id)
             setVeiculos([...listaVeiculos])
