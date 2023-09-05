@@ -29,7 +29,7 @@ export const FormRegisterVehicle = () => {
 
   useEffect(() => {
     if (parametros.id) {
-      http.get<IVeiculo>(`/${parametros.id}`).then((resposta) => {
+      http.get<IVeiculo>(`veiculos/${parametros.id}`).then((resposta) => {
         setVeiculo(resposta.data);
       });
     }
