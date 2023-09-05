@@ -39,7 +39,7 @@ export const FormRegisterVehicle = () => {
     evento.preventDefault();
 
     if (parametros.id) {
-      http.put(`/${parametros.id}`, veiculo).then(() => {
+      http.put(`veiculos/${parametros.id}`, veiculo).then(() => {
         alert("Veiculo atualizado com sucesso!");
       });
     } else {
