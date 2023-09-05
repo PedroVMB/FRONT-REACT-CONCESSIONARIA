@@ -9,7 +9,7 @@ function App() {
       <Route path="/" element={<BasePage />}>
         <Route path="veiculos" element={<Principal />} />
         <Route path="veiculos/novo" element={<FormRegisterVehicle />} />
-        <Route path="veiculos/:id" element={<FormRegisterVehicle />} />
+        <Route path="veiculos/novo/:id" element={<FormRegisterVehicle />} />
       </Route>
     </Routes>
   );
